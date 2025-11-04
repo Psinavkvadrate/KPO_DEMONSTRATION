@@ -45,7 +45,7 @@
 }
 
 .filters {
-  background: #29004a32;
+  background: #29004a00;
   padding: 16px;
   margin-bottom: 24px;
   border-radius: 12px;
@@ -53,29 +53,29 @@
   .ant-input,
   .ant-input-affix-wrapper,
   .ant-select-selector {
-    background-color: #3b0066 !important;
-    color: #fff !important;
-    border-radius: 8px !important;
+    background-color: #1b1b1b !important;
+    color: #b388ff !important;
+    border: 0;
 
     &::placeholder {
-      color: #d8c8ff !important;
+      color: #b388ff !important;
     }
   }
 
   .ant-select-selection-item {
-    color: #fff !important;
+    color: #b388ff !important;
   }
   .ant-select-selection-placeholder {
-    color: #fff !important;
+    color: #b388ff !important;
   }
 
   .anticon {
-    color: #d8c8ff !important;
+    color: #b388ff !important;
   }
 
   .ant-btn {
-    background-color: #b388ff !important;
-    color: #fff !important;
+    background-color: #1b1b1b !important;
+    color: #b388ff !important;
     border: none !important;
     border-radius: 8px !important;
     font-weight: 600;
@@ -86,6 +86,33 @@
       box-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
     }
   }
+
+  .ant-select-selector {
+    background-color: #1b1b1b !important;
+    color: #b388ff !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  // Убираем рамку при фокусе
+  .ant-select-focused .ant-select-selector,
+  .ant-select-selector:focus,
+  .ant-select-selector:hover {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  // Чтобы иконка стрелки совпадала по цвету
+  .ant-select-arrow {
+    color: #b388ff !important;
+  }
+
+  // Чтобы placeholder и текст были твоего цвета
+  .ant-select-selection-item,
+  .ant-select-selection-placeholder {
+    color: #b388ff !important;
+  }
+
 }
 
 
@@ -109,20 +136,27 @@
   }
 
   .card-body {
-    padding: 12px;
+    padding: 10px;
 
     h3 {
       color: #b388ff;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
+      font-size: 20px;
     }
 
     .price {
       font-weight: bold;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .mile {
+      margin-bottom: 4px;
+      font-size: 16px;
     }
 
     .muted {
-      font-size: 12px;
+      font-size: 16px;
       color: #888;
     }
   }

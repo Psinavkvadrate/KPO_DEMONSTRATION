@@ -35,7 +35,7 @@ export default function HeaderBar() {
         <Dropdown overlay={menu} placement="bottomRight" arrow>
           <Avatar icon={<UserOutlined />} className="profile-avatar" />
         </Dropdown>
-        <span className="username">{getUser()?.username}</span>
+        <span className="username">{getUser()?.full_name}</span>
       </div>
     </Header>
   )
