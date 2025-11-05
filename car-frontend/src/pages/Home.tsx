@@ -20,7 +20,6 @@ export default function Home() {
   const [filters, setFilters] = useState<{ mark?: string; model?: string; prodYear?: string }>({})
   const { showSnackbar, SnackbarElement } = useSnackbar()
 
-  // Показываем Snackbar только при первом заходе
   useEffect(() => {
     const shouldWelcome = localStorage.getItem('welcome')
     if (shouldWelcome) {
