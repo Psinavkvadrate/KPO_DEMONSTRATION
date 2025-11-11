@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'antd'
 import type { Car } from '../types'
-import './CarModal.scss'
+import './CarModal.scss';
+import { getUser } from '../utils/auth';
+import { bookCar } from '../api';
+import { useSnackbar } from '../hooks/useSnackbar';
 
 interface CarModalProps {
   car: Car
@@ -13,6 +16,9 @@ export default function CarModal({ car, visible, onClose }: CarModalProps) {
   const placeholder =
     'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250"><rect width="100%" height="100%" fill="%23000"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23aaa" font-size="20">Нет фото</text></svg>'
   const isReserved = car.status === 'Rented';
+  const user = getUser();
+  const isUser = user.role === 'User'; 
+  const { showSnackbar } = useSnackbar();
 
   function refactorCondition(condition: string) {
     let result: string;
@@ -49,6 +55,36 @@ export default function CarModal({ car, visible, onClose }: CarModalProps) {
     return result;
   }
 
+  async function handleBook() {
+    try {
+      if (!user) return;
+
+      const bookingData = {
+        user_id: user.id,
+        client_name: user.full_name,
+        client_phone: user.phone ?? 'Не указан',
+        amount: car.amount
+      };
+
+      const res = await bookCar(car.VIN, bookingData);
+
+      if (res.error) {
+        alert('Ошибка: ' + res.error);
+        return;
+      }
+
+      showSnackbar('Машина успешно забронирована! Встреча назначена на завтра.', 'success');
+
+      onClose();
+
+      window.location.reload();
+
+    } catch (err: any) {
+      showSnackbar('Не удалось забронировать', 'error');
+    }
+  }
+
+
   return (
     <Modal
       open={visible}
@@ -70,8 +106,14 @@ export default function CarModal({ car, visible, onClose }: CarModalProps) {
           <p><b>Статус:</b> {refactorStatus(car.status)}</p>
           <p><b>Описание:</b> {refactorCondition(car.condition)}</p>
           
-          {!isReserved && (
-            <Button type="primary" className="car-modal-button" block style={{ marginTop: 'auto' }}>
+          {!isReserved && isUser && (
+            <Button 
+              type="primary" 
+              className="car-modal-button" 
+              block 
+              style={{ marginTop: 'auto' }}
+              onClick={handleBook}
+            >
               Договориться о встрече
             </Button>
           )}

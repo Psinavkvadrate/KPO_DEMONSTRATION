@@ -1,0 +1,211 @@
+.user-meet-layout {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #000000 0%, #1b0029 100%);
+  color: #fff;
+}
+
+.user-meet-content {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.user-meet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 0 16px;
+
+  h1 {
+    color: #7a3cff;
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .user-meet-stats {
+    color: #fff;
+    font-size: 16px;
+    
+    span {
+      color: #7a3cff;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+  }
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  
+  .ant-spin-dot-item {
+    background-color: #7a3cff;
+  }
+}
+
+.error-message {
+  background: rgba(255, 77, 79, 0.1);
+  border: 1px solid #ff4d4f;
+  color: #ff4d4f;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(123, 60, 255, 0.05);
+  border: 2px dashed #7a3cff;
+  border-radius: 12px;
+  margin: 40px 0;
+
+  .empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: #7a3cff;
+    margin-bottom: 12px;
+    font-size: 24px;
+  }
+
+  p {
+    color: #888;
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
+.appointments-table-container {
+  background: #1b1b1b;
+  border: 2px solid #7a3cff;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.appointments-table {
+  background: transparent !important;
+
+  // Заголовки таблицы
+  .ant-table-thead > tr > th {
+    background: #29004a !important;
+    color: #7a3cff !important;
+    border-bottom: 2px solid #7a3cff !important;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 16px;
+  }
+
+  // Строки таблицы
+  .ant-table-tbody > tr {
+    background: #1b1b1b;
+    transition: all 0.3s ease;
+
+    &:hover > td {
+      background: rgba(123, 60, 255, 0.1) !important;
+    }
+
+    > td {
+      border-bottom: 1px solid #333 !important;
+      padding: 16px;
+      color: #fff;
+    }
+  }
+
+  // Пагинация
+  .ant-pagination {
+    padding: 20px 16px;
+    
+    .ant-pagination-item {
+      background: #1b1b1b;
+      border: 1px solid #7a3cff;
+      
+      a {
+        color: #7a3cff;
+      }
+
+      &.ant-pagination-item-active {
+        background: #7a3cff;
+        
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    .ant-pagination-prev,
+    .ant-pagination-next {
+      .ant-pagination-item-link {
+        background: #1b1b1b;
+        border: 1px solid #7a3cff;
+        color: #7a3cff;
+      }
+    }
+
+    .ant-pagination-jump-prev,
+    .ant-pagination-jump-next {
+      .ant-pagination-item-container {
+        .ant-pagination-item-ellipsis {
+          color: #7a3cff !important;
+        }
+      }
+    }
+
+    .ant-pagination-disabled {
+      .ant-pagination-item-link {
+        border-color: #333 !important;
+        color: #666 !important;
+      }
+    }
+
+    .ant-pagination-total-text {
+        color: #fff;
+    }
+
+    .ant-pagination-options {
+      .ant-select-selector {
+        background: #1b1b1b !important;
+        border: 1px solid #7a3cff !important;
+        color: #7a3cff !important;
+      }
+
+      .ant-select-arrow {
+        color: #7a3cff !important;
+      }
+    }
+  }
+
+  // Скрываем дефолтные бордеры Ant Design
+  .ant-table-container {
+    border: none !important;
+  }
+
+  .ant-table {
+    background: transparent !important;
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .user-meet-content {
+    padding: 16px;
+  }
+
+  .user-meet-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .appointments-table-container {
+    overflow-x: auto;
+  }
+}
