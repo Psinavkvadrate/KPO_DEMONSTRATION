@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { Car } from '../types'
 import CarModal from './CarModal'
-import './CarCard.scss' // Добавьте этот файл для стилей
+import './CarCard.scss'
 
 export default function CarCard({ car }: { car: Car }) {
   const [modalVisible, setModalVisible] = useState(false)
