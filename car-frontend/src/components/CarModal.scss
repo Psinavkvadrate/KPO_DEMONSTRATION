@@ -1,3 +1,27 @@
+/* --- Сброс белой рамки у модалки AntD --- */
+.ant-modal-content {
+  background: #1b1b1b !important;
+  border: 4px solid #7a3cff !important;
+  border-radius: 12px !important;
+  color: #fff;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.ant-modal-body {
+  padding: 0 !important;
+  background: #1b1b1b !important;
+}
+
+.ant-modal-close {
+  color: #fff !important;
+}
+
+.ant-modal-close:hover {
+  color: #7a3cff !important;
+}
+
+/* --- Твой блок --- */
 .car-modal {
   display: flex;
   gap: 24px;
@@ -6,6 +30,7 @@
 
   .car-modal-left {
     flex: 1;
+
     img {
       width: 100%;
       height: auto;
@@ -21,26 +46,28 @@
     gap: 12px;
 
     h2 {
-      color: #b388ff;
+      color: #7a3cff;
       margin-bottom: 16px;
     }
 
     p {
       margin: 4px 0;
       color: #fff;
+
       b {
-        color: #b388ff;
+        color: #7a3cff;
       }
     }
 
     .car-modal-button {
       margin-top: auto;
-      background-color: #b388ff;
+      background-color: #7a3cff;
       border: none;
-      color: #000;
+      color: #fff;
       font-weight: 600;
+
       &:hover {
-        background-color: #c19aff;
+        background-color: #271254;
       }
     }
   }

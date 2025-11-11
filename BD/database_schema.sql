@@ -58,6 +58,27 @@ CREATE TABLE IF NOT EXISTS payments (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Таблица для встреч (добавить к существующим таблицам)
+CREATE TABLE IF NOT EXISTS appointments (
+    appointment_id SERIAL PRIMARY KEY,
+    contract_id INTEGER REFERENCES contracts(contract_id),
+    user_id INTEGER REFERENCES users(id),
+    manager_id INTEGER REFERENCES users(id),
+    appointment_date TIMESTAMP NOT NULL,
+    duration_minutes INTEGER DEFAULT 60,
+    purpose VARCHAR(200) NOT NULL,
+    status VARCHAR(20) NOT NULL CHECK (status IN ('Scheduled', 'Completed', 'Cancelled')),
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Индексы для оптимизации запросов
+CREATE INDEX IF NOT EXISTS idx_appointments_user_id ON appointments(user_id);
+CREATE INDEX IF NOT EXISTS idx_appointments_manager_id ON appointments(manager_id);
+CREATE INDEX IF NOT EXISTS idx_appointments_date ON appointments(appointment_date);
+CREATE INDEX IF NOT EXISTS idx_appointments_status ON appointments(status);
+
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
 CREATE INDEX IF NOT EXISTS idx_users_role ON users(role);

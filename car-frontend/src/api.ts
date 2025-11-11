@@ -30,7 +30,6 @@ export async function register(
 
 export async function fetchCars(): Promise<Car[]> {
     const res = await api.get('/api/cars')
-    // backend возвращает: { error: null, data: { data: [...], messages: null } }
     return res.data?.data?.data ?? []
 }
 
