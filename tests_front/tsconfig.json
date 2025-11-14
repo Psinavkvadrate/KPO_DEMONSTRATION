@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "@frontend/*": ["../car-frontend/src/*"]
+    },
+    "types": ["vitest", "node"],
+    "allowImportingTsExtensions": false,
+    "noEmit": true
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "../car-frontend/src/**/*.ts",
+    "../car-frontend/src/**/*.tsx"
+  ]
+}
