@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// ==================== AUTH MODULE ====================
+// = AUTH MODULE =
 app.post('/api/auth/login', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -59,7 +59,7 @@ app.post('/api/auth/register', async (req, res) => {
     }
 });
 
-// ==================== CAR MANAGEMENT ====================
+// = CAR MANAGEMENT =
 app.get('/api/cars', async (req, res) => {
     try {
         const result = await pool.query(`
@@ -152,7 +152,7 @@ app.post('/api/cars/:vin/book', async (req, res) => {
     }
 });
 
-// ==================== APPOINTMENT MANAGEMENT ====================
+// = APPOINTMENT MANAGEMENT =
 // Получить встречи пользователя
 app.get('/api/appointments/user/:userId', async (req, res) => {
     try {
@@ -355,7 +355,7 @@ app.put('/api/appointments/:appointmentId', async (req, res) => {
     }
 });
 
-// ==================== CONTRACT MANAGEMENT ====================
+// = CONTRACT MANAGEMENT =
 app.get('/api/contracts', async (req, res) => {
     try {
         const result = await pool.query(`
@@ -387,7 +387,7 @@ app.get('/api/contracts', async (req, res) => {
     }
 });
 
-// ==================== USER MANAGEMENT ====================
+// = USER MANAGEMENT =
 app.get('/api/users', async (req, res) => {
     try {
         const result = await pool.query(
@@ -420,7 +420,7 @@ app.get('/api/users/managers', async (req, res) => {
     }
 });
 
-// ==================== жив ли сервер ====================
+// = жив ли сервер =
 app.get('/api/health', async (req, res) => {
     try {
         await pool.query('SELECT 1');
@@ -434,18 +434,22 @@ app.get('/api/health', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`🚗 Full Car Rental API running on http://localhost:${port}`);
-    console.log('📊 Available endpoints:');
-    console.log('   👤 AUTH:    POST /api/auth/login, /api/auth/register');
-    console.log('   👥 USERS:   GET /api/users, GET /api/users/managers');
-    console.log('   🚗 CARS:    GET /api/cars, POST /api/cars/:vin/book');
-    console.log('   📅 APPOINTMENTS:');
-    console.log('        GET /api/appointments/user/:userId');
-    console.log('        GET /api/appointments/manager');
-    console.log('        POST /api/appointments/:appointmentId/assign');
-    console.log('        POST /api/appointments/:appointmentId/unassign');
-    console.log('        PUT /api/appointments/:appointmentId');
-    console.log('   📝 CONTRACT: GET /api/contracts');
-    console.log('   ❤️  HEALTH:  GET /api/health');
-});
+module.exports = app;
+
+if (require.main === module) {
+    const server = app.listen(port, () => {
+        console.log('🚗 Full Car Rental API running on http://localhost:${port}');
+        console.log('📊 Available endpoints:');
+        console.log('   👤 AUTH:    POST /api/auth/login, /api/auth/register');
+        console.log('   👥 USERS:   GET /api/users, GET /api/users/managers');
+        console.log('   🚗 CARS:    GET /api/cars, POST /api/cars/:vin/book');
+        console.log('   📅 APPOINTMENTS:');
+        console.log('        GET /api/appointments/user/:userId');
+        console.log('        GET /api/appointments/manager');
+        console.log('        POST /api/appointments/:appointmentId/assign');
+        console.log('        POST /api/appointments/:appointmentId/unassign');
+        console.log('        PUT /api/appointments/:appointmentId');
+        console.log('   📝 CONTRACT: GET /api/contracts');
+        console.log('   ❤️  HEALTH:  GET /api/health');
+    });
+}
