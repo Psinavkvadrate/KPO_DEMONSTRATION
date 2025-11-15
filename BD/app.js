@@ -438,18 +438,18 @@ module.exports = app;
 
 if (require.main === module) {
     const server = app.listen(port, () => {
-        console.log('🚗 Full Car Rental API running on http://localhost:${port}');
-        console.log('📊 Available endpoints:');
-        console.log('   👤 AUTH:    POST /api/auth/login, /api/auth/register');
-        console.log('   👥 USERS:   GET /api/users, GET /api/users/managers');
-        console.log('   🚗 CARS:    GET /api/cars, POST /api/cars/:vin/book');
-        console.log('   📅 APPOINTMENTS:');
+        console.log('      Full Car Rental API running on http://localhost:${port}');
+        console.log('      Available endpoints:');
+        console.log('        AUTH:    POST /api/auth/login, /api/auth/register');
+        console.log('        USERS:   GET /api/users, GET /api/users/managers');
+        console.log('        ARS:    GET /api/cars, POST /api/cars/:vin/book');
+        console.log('        APPOINTMENTS:');
         console.log('        GET /api/appointments/user/:userId');
         console.log('        GET /api/appointments/manager');
         console.log('        POST /api/appointments/:appointmentId/assign');
         console.log('        POST /api/appointments/:appointmentId/unassign');
         console.log('        PUT /api/appointments/:appointmentId');
-        console.log('   📝 CONTRACT: GET /api/contracts');
-        console.log('   ❤️  HEALTH:  GET /api/health');
+        console.log('        CONTRACT: GET /api/contracts');
+        console.log('        HEALTH:  GET /api/health');
     });
 }
