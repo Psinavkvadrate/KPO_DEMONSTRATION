@@ -73,6 +73,50 @@ CREATE TABLE IF NOT EXISTS appointments (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
+CREATE TABLE IF NOT EXISTS dkp (
+    dkp_id SERIAL PRIMARY KEY,
+    appointment_id INTEGER REFERENCES appointments(appointment_id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    place TEXT,
+    date DATE,
+
+    owner_fullname TEXT,
+    owner_birthdate DATE,
+    owner_registration TEXT,
+    owner_living TEXT,
+    owner_passport_series VARCHAR(10),
+    owner_passport_number VARCHAR(20),
+    owner_passport_issued_by TEXT,
+    owner_passport_issue_date DATE,
+
+    buyer_fullname TEXT,
+    buyer_birthdate DATE,
+    buyer_registration TEXT,
+    buyer_living TEXT,
+    buyer_passport_series VARCHAR(10),
+    buyer_passport_number VARCHAR(20),
+    buyer_passport_issued_by TEXT,
+    buyer_passport_issue_date DATE,
+
+    vin VARCHAR(20),
+    car_brand_model TEXT,
+    car_year INTEGER,
+    engine_number TEXT,
+    chassis_number TEXT,
+    body_number TEXT,
+    color TEXT,
+    pts_series TEXT,
+    pts_number TEXT,
+    pts_issued_by TEXT,
+    pts_issue_date DATE,
+
+    price DECIMAL(10,2),
+    copies INTEGER
+);
+
+
 -- Индексы для оптимизации запросов
 CREATE INDEX IF NOT EXISTS idx_appointments_user_id ON appointments(user_id);
 CREATE INDEX IF NOT EXISTS idx_appointments_manager_id ON appointments(manager_id);
