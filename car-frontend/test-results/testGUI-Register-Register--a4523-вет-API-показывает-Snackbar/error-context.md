@@ -1,0 +1,92 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - img "Логотип ЖСПД" [ref=e6]
+  - generic [ref=e8]:
+    - heading "Регистрация" [level=3] [ref=e9]
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e14]:
+            - generic [ref=e17]: Логин
+            - generic [ref=e21]:
+              - img "user" [ref=e23]:
+                - img [ref=e24]
+              - textbox "Логин" [ref=e26]:
+                - /placeholder: Введите логин
+                - text: existing
+          - generic [ref=e28]:
+            - generic [ref=e30]:
+              - text: "*"
+              - generic [ref=e31]: Email
+            - generic [ref=e35]:
+              - img "mail" [ref=e37]:
+                - img [ref=e38]
+              - textbox "* Email" [ref=e40]:
+                - /placeholder: Введите email
+                - text: ex@ex.com
+          - generic [ref=e41]:
+            - generic [ref=e44]:
+              - generic [ref=e47]: Фамилия
+              - generic [ref=e51]:
+                - img "idcard" [ref=e53]:
+                  - img [ref=e54]
+                - textbox "Фамилия" [ref=e56]: Иванов
+            - generic [ref=e59]:
+              - generic [ref=e62]: Имя
+              - generic [ref=e66]:
+                - img "idcard" [ref=e68]:
+                  - img [ref=e69]
+                - textbox "Имя" [ref=e71]: Иван
+            - generic [ref=e74]:
+              - generic [ref=e77]: Отчество
+              - generic [ref=e81]:
+                - img "idcard" [ref=e83]:
+                  - img [ref=e84]
+                - textbox "Отчество" [ref=e86]: Иванович
+        - generic [ref=e87]:
+          - generic [ref=e89]:
+            - generic [ref=e92]: Пароль
+            - generic [ref=e96]:
+              - img "lock" [ref=e98]:
+                - img [ref=e99]
+              - textbox "Пароль" [ref=e101]:
+                - /placeholder: Введите пароль
+                - text: Aa12345
+              - img "eye-invisible" [ref=e103] [cursor=pointer]:
+                - img [ref=e104]
+          - generic [ref=e108]:
+            - generic [ref=e110]:
+              - img "check" [ref=e111]:
+                - img [ref=e112]
+              - generic [ref=e114]: 6+ символов
+            - generic [ref=e116]:
+              - img "check" [ref=e117]:
+                - img [ref=e118]
+              - generic [ref=e120]: Строчная буква
+            - generic [ref=e122]:
+              - img "check" [ref=e123]:
+                - img [ref=e124]
+              - generic [ref=e126]: Заглавная буква
+            - generic [ref=e128]:
+              - img "check" [ref=e129]:
+                - img [ref=e130]
+              - generic [ref=e132]: Цифра
+          - generic [ref=e134]:
+            - generic [ref=e137]: Подтверждение пароля
+            - generic [ref=e141]:
+              - img "lock" [ref=e143]:
+                - img [ref=e144]
+              - textbox "Подтверждение пароля" [ref=e146]:
+                - /placeholder: Повторите пароль
+                - text: Aa12345
+              - img "eye-invisible" [ref=e148] [cursor=pointer]:
+                - img [ref=e149]
+      - button "Зарегистрироваться" [active] [ref=e152] [cursor=pointer]:
+        - generic [ref=e153]: Зарегистрироваться
+    - generic [ref=e155]:
+      - text: Уже есть аккаунт?
+      - link "Войти" [ref=e156] [cursor=pointer]:
+        - /url: /login
+```

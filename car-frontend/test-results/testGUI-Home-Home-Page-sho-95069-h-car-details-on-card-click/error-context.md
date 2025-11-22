@@ -1,0 +1,78 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]: ЖСПД
+      - menu [ref=e6]:
+        - menuitem "car Каталог" [ref=e7] [cursor=pointer]:
+          - img "car" [ref=e8]:
+            - img [ref=e9]
+          - text: Каталог
+        - menuitem "schedule Мои встречи" [ref=e11] [cursor=pointer]:
+          - img "schedule" [ref=e12]:
+            - img [ref=e13]
+          - text: Мои встречи
+        - menuitem [disabled]:
+          - img:
+            - img
+      - generic [ref=e15]:
+        - img "user" [ref=e17] [cursor=pointer]:
+          - img [ref=e18]
+        - generic [ref=e20]: Иван Иванов
+    - main [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e25]:
+          - img "search" [ref=e27]:
+            - img [ref=e28]
+          - textbox "Марка" [ref=e30]
+        - generic [ref=e32]:
+          - img "search" [ref=e34]:
+            - img [ref=e35]
+          - textbox "Модель" [ref=e37]
+        - generic [ref=e39] [cursor=pointer]:
+          - generic [ref=e41]:
+            - combobox [ref=e43]
+            - generic: Год
+          - generic:
+            - img:
+              - img
+        - button "Сбросить фильтры" [ref=e45] [cursor=pointer]:
+          - generic [ref=e46]: Сбросить фильтры
+      - generic [ref=e47]:
+        - article [ref=e48] [cursor=pointer]:
+          - img "BMW X5" [ref=e50]
+          - generic [ref=e51]:
+            - heading "BMW X5 (2021)" [level=3] [ref=e52]:
+              - text: BMW X5
+              - generic [ref=e53]: (2021)
+            - paragraph [ref=e54]: 5.000.000 ₽
+            - paragraph [ref=e55]: "Пробег: 42.000 км"
+        - article [ref=e56] [cursor=pointer]:
+          - img "Audi A6" [ref=e58]
+          - generic [ref=e59]:
+            - heading "Audi A6 (2019)" [level=3] [ref=e60]:
+              - text: Audi A6
+              - generic [ref=e61]: (2019)
+            - paragraph [ref=e62]: 3.500.000 ₽
+            - paragraph [ref=e63]: "Пробег: 61.000 км"
+  - generic [ref=e64]:
+    - dialog:
+      - generic [ref=e65]:
+        - button "Close" [ref=e66] [cursor=pointer]:
+          - generic "Close" [ref=e67]:
+            - img "close" [ref=e68]:
+              - img [ref=e69]
+        - generic [ref=e72]:
+          - img "BMW X5" [ref=e74]
+          - generic [ref=e75]:
+            - heading "BMW X5 (2021)" [level=2] [ref=e76]
+            - paragraph [ref=e77]: "VIN: VIN001"
+            - paragraph [ref=e78]: "Цена: 5.000.000 ₽"
+            - paragraph [ref=e79]: "Пробег: 42.000 км"
+            - paragraph [ref=e80]: "Статус: Доступна для покупки"
+            - paragraph [ref=e81]: "Описание: Ну, норм :)"
+            - button "Договориться о встрече" [ref=e82] [cursor=pointer]:
+              - generic [ref=e83]: Договориться о встрече
+```
